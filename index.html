@@ -1,0 +1,49 @@
+<script>
+
+function getComputerChoice() {
+    let compChoice
+    let num = Math.random();
+
+    if (num < 0.3333) {
+        compChoice = "rock";
+    } else if (num > 0.6666) {
+        compChoice = "paper";
+    } else {
+        compChoice = "scissors"
+    }
+
+    return compChoice;
+
+}
+
+let playerChoice = prompt("Enter rock, paper or scissors", "");
+let compChoice = getComputerChoice();
+
+function rockPaperScissors() {
+    if ((compChoice === "rock") && (playerChoice === "rock")) {
+        return "It's a draw!"
+    } else if ((compChoice === "rock") && (playerChoice === "paper")) {
+        return "You win! Paper beats rock"
+    } else if ((compChoice ===  "rock") && (playerChoice === "scissors")) {
+        return "You lose! Rock beats scissors"
+    } else if ((compChoice === "paper") && (playerChoice === "paper")) {
+        return "It's a draw!"
+    } else if ((compChoice === "paper") && (playerChoice === "scissors")) {
+        return "You win! Scissors beats paper"
+    } else if ((compChoice === "paper") && (playerChoice ===  "rock")) {
+        return "You lose! Paper beats rock"
+    } else if ((compChoice === "scissors") && (playerChoice === "scissors")) {
+        return "It's a draw!"
+    } else if ((compChoice === "scissors") && (playerChoice ===  "rock")) {
+        return "You win! Rock beats scissors"
+    } else if ((compChoice === "scissors") && (playerChoice === "paper")) {
+        return "You lose! Scissors beats paper"
+    } else {
+        return "Please enter rock, paper or scissors"
+    }
+
+}
+
+console.log(rockPaperScissors())
+
+</script>
