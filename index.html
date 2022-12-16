@@ -16,34 +16,55 @@ function getComputerChoice() {
 
 }
 
-let playerChoice = prompt("Enter rock, paper or scissors", "");
-let compChoice = getComputerChoice();
+let userScore = 0
+let compScore = 0
+let Result 
 
-function rockPaperScissors() {
-    if ((compChoice === "rock") && (playerChoice === "rock")) {
-        return "It's a draw!"
+function playRound() {
+    let playerChoice = prompt("Enter rock, paper or scissors", "").toLowerCase();
+    let compChoice = getComputerChoice();
+    if (compChoice === playerChoice) {
+        result = "It's a draw! The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else if ((compChoice === "rock") && (playerChoice === "paper")) {
-        return "You win! Paper beats rock"
+        userScore = ++userScore;
+        result = "You win! Paper beats rock. The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else if ((compChoice ===  "rock") && (playerChoice === "scissors")) {
-        return "You lose! Rock beats scissors"
-    } else if ((compChoice === "paper") && (playerChoice === "paper")) {
-        return "It's a draw!"
+        compScore = ++compScore;
+        result = "You lose! Rock beats scissors. The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else if ((compChoice === "paper") && (playerChoice === "scissors")) {
-        return "You win! Scissors beats paper"
+        userScore = ++userScore;
+        result = "You win! Scissors beats paper. The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else if ((compChoice === "paper") && (playerChoice ===  "rock")) {
-        return "You lose! Paper beats rock"
-    } else if ((compChoice === "scissors") && (playerChoice === "scissors")) {
-        return "It's a draw!"
+        compScore = ++compScore;
+        result = "You lose! Paper beats rock. The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else if ((compChoice === "scissors") && (playerChoice ===  "rock")) {
-        return "You win! Rock beats scissors"
+        userScore = ++userScore;
+        result = "You win! Rock beats scissors. The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else if ((compChoice === "scissors") && (playerChoice === "paper")) {
-        return "You lose! Scissors beats paper"
+        compScore = ++compScore;
+        result = "You lose! Scissors beats paper. The score is You: " + userScore + ", Computer: " + compScore + ".";
     } else {
-        return "Please enter rock, paper or scissors"
+        result = "Please enter rock, paper or scissors.";
     }
 
 }
 
-console.log(rockPaperScissors())
+function game() {
+    for (let i = 0; i < 5; i++) { 
+        playRound();
+        alert(result);
+    }
+    if (userScore > compScore) {
+        alert("Congratulations! You won.");
+    } else if (compScore > userScore) {
+        alert("Oh no! You lost.");
+    } else {
+        alert("It's a draw!");
+    }
+}
+
+
+
+console.log(game());
 
 </script>
